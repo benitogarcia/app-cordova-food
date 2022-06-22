@@ -1,0 +1,78 @@
+<div ng-show="sesionActiva" class="content-app">
+	<div class="w3-theme w3-center">
+		<input type="text" class="input-search" name="search" ng-model="search" placeholder="Search..">
+	</div>
+	<div class="w3-row">
+		<div class="w3-col s6 m4 p-5" ng-repeat="prod in productos | filter:search">
+			<div class="w3-card-2 card">
+				<img src="{{prod.imagen}}" alt="{{prod.producto}}" class="prod-img">
+				<div class="w3-container w3-center">
+					<p class="prod-titulo w3-center">{{prod.producto}}</p>
+					<p class="prod-precio">{{prod.cantidad}} x {{prod.precio | currency}}</p>
+					<p class="prod-descripcion">{{prod.descripcion}}</p>
+				</div>
+				<button class="w3-btn w3-block w3-theme-food prod-btn-card" ng-click="addProductoCart(prod)">
+				<i class="fa fa-cart-plus" aria-hidden="true"></i> Añadir
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="mdlAddProducto" class="w3-modal">
+	<div class="w3-modal-content w3-animate-bottom">
+		<header class="w3-container w3-theme-food">
+			<span onclick="closeModal('mdlAddProducto')" class="w3-btn w3-display-topright w3-theme-food">&times;</span>
+			<div class="mdl-header">
+				<h5>Complete datos del pedido</h5>
+			</div>
+		</header>
+		<div class="w3-container">
+			<h4 class="w3-center w3-text-theme">
+			<span class="w3-text-red">{{producto.cantidad * ordenesCount}}</span> {{producto.producto}} <br>
+			<div class="w3-bar  w3-round-xxlarge">
+				<button class="w3-bar-item w3-btn w3-theme-d2 w3-padding-small p-5" ng-click="decrementar()">
+				<i class="fa fa-minus-circle" aria-hidden="true"></i>
+				</button>
+				<button class="w3-bar-item w3-btn w3-theme-d1 w3-padding-small">
+				{{ subtotal | currency}}
+				</button>
+				<button class="w3-bar-item w3-btn w3-theme-d2 w3-padding-small p-5" ng-click="incrementar()">
+				<i class="fa fa-plus-circle" aria-hidden="true"></i>
+				</button>
+			</div>
+			</h4>
+			<div class="w3-padding-small" style="padding-bottom: 30px;">
+				<div ng-show="producto.compobl" >
+					<strong class="w3-text-red">* Seleccione su complemento</strong>
+					<p ng-repeat="compobli in producto.compobligatorios" class="pl-5">
+						<label>
+							<input class="w3-radio" type="radio" name="complementoobligatorio" ng-model="complementoobligatorio.id" value="{{compobli.id}}">
+							&nbsp;&nbsp;&nbsp;
+							{{compobli.complemento}}
+						</label>
+					</p>
+				</div>
+				<div ng-show="producto.compopc">
+					<strong class="w3-text-theme">* Opciones de complemento</strong>
+					<p ng-repeat="complopc in producto.compopcionales" class="w3-border-bottom">
+						<label>
+							<input class="w3-check" type="checkbox" ng-click="eventClickCmplOpc(complopc)">
+							{{complopc.complemento}} <span class="w3-right">{{complopc.precio | currency}}</span>
+						</label>
+						
+					</p>
+				</div>
+				<p>
+					<label class="w3-text-theme">Detalles</label>
+					<textarea class="w3-input w3-border" ng-model="nota"></textarea>
+				</p>
+			</div>
+			<p class="w3-text-red">{{msgError}}</p>
+			<p>
+				<button class="w3-btn w3-theme-food w3-round-xxlarge w3-right w3-margin-small" ng-click="addProductoCartComplementos()">
+				<i class="fa fa-cart-plus" aria-hidden="true"></i> Añadir
+				</button>
+			</p>
+		</div>
+	</div>
+</div>

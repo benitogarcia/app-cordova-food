@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"-->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta name="color-scheme" content="light dark">
+        <!--title>Hello World</title  http://localhost/api.food/sucursal/-->
+        <link rel="stylesheet" type="text/css" href="public/libs/w3css/w3.css">
+        <link rel="stylesheet" type="text/css" href="public/libs/w3css/w3-theme-food.css">
+        <link rel="stylesheet" type="text/css" href="public/libs/font-awesome-4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="public/css/app.css">
+
+        <title></title>
+    </head>
+    <body ng-app="appMainJS">
+        <!-- SIDEBAR INICIO -->
+        <div id="myOverlay" class="w3-overlay w3-animate-opacity" onclick="closeSidebar()" style="cursor: pointer; display: none; z-index: 1;"></div>
+        <nav id="mySidebar" class="w3-sidebar w3-bar-block w3-card" style="z-index: 2; display: none; margin-top: -82px">
+            <div class="w3-container w3-theme-d2">
+                <span onclick="closeSidebar()" class="w3-button w3-display-topright w3-large">X</span>
+                <br>
+                <div class="w3-padding w3-center">
+                    <img class="w3-circle" src="public/img/default/img_md_globe.jpg" alt="avatar" style="width:75%">
+                </div>
+            </div>
+            <a class="w3-bar-item w3-button sb-menu w3-theme avoid-clicks"
+                onclick="menuItemSelect(this)" href="#!/">
+                <h5>Inicio</h5>
+            </a>
+            <a class="w3-bar-item w3-button sb-menu"
+                onclick="menuItemSelect(this)" href="#!/template">
+                <h5>Template</h5>
+            </a>
+            <a class="w3-bar-item w3-button sb-menu"
+                onclick="menuItemSelect(this)" href="#!/spinner">
+                <h5>Spinner</h5>
+            </a>
+            <hr>
+            <a class="w3-bar-item w3-button sb-menu"
+                onclick="menuItemSelect(this)" href="#">
+                <h5>Salir</h5>
+            </a>
+        </nav>
+        <!-- SIDEBAR INICIO -->
+        <!-- NAVBAR INICIO -->
+        <div id="myBar" class="w3-top" style="z-index: 0; display: none;">
+            <header class="w3-bar w3-card w3-theme">
+                <button class="w3-bar-item w3-btn w3-xxlarge w3-hover-theme" onclick="openSidebar()">
+                &#9776;
+                </button>
+                <h3 class="w3-bar-item">Movies</h3>
+            </header>
+        </div>
+        <!-- NAVBAR FIN -->
+        <a href="#!/cart" id="myBtnCart" class="w3-btn sb-menu w3-xlarge w3-circle w3-theme-action w3-right cart d-none" onclick="menuItemSelect(this)">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        </a>
+        <!-- BODY INICIO -->
+        <div>
+            <div ng-view></div>
+        </div>
+        <!-- BODY FIN -->
+        <!-- FOOTER INICIO -->
+        <div id="myFooter" class="w3-bottom" style="z-index: 0; display: none;">
+            <footer class="w3-container w3-theme w3-margin-top">
+                <div class="w3-row w3-center">
+                    <div class="w3-col s3 m3">
+                        <a href="#C1">
+                            <h5>C1</h5>
+                        </a>
+                    </div>
+                    <div class="w3-col s3 m3">
+                        <a href="#C2">
+                            <h5>C2</h5>
+                        </a>
+                    </div>
+                    <div class="w3-col s3 m3">
+                        <a href="#C3">
+                            <h5>C3</h5>
+                        </a>
+                    </div>
+                    <div class="w3-col s3 m3">
+                        <a href="#C4">
+                            <h5>C4</h5>
+                        </a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- FOOTER FIN -->        
+        <!-- INICIO MODAL LOADING -->
+        <div id="mdlLoading" class="w3-modal">
+            <div class="w3-modal-content">
+            </div>
+        </div>
+        <!-- FIN MODAL LOADING -->
+        <script src="cordova.js"></script>
+        <script src="public/js/session.js"></script>
+        <script src="public/js/cart.js"></script>
+        <script src="public/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="public/libs/angularjs/1.6.9/angular-route.js"></script>
+        <script src="public/js/navbar.js"></script>
+        <script src="public/js/app-angular.js"></script>
+        <script src="router/productos/productos.ctrl.js"></script>
+        <script src="router/cart/cart.ctrl.js"></script>
+        <script src="router/auth/login/login.ctrl.js"></script>
+    </body>
+</html>

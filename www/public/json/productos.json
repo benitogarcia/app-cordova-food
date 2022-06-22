@@ -1,0 +1,109 @@
+[{
+    "id": 1,
+    "producto": "Tacos",
+    "cantidad": 2,
+    "imagen": "public/img/default/tacos.png",
+    "precio": 60.5,
+    "descripcion": "Descripcion de mi primer producto 1",
+    "compobl": true,
+    "compopc": false,
+    "compobligatorios": [{
+        "id": 1,
+        "complemento": "Asada"
+    }, {
+        "id": 2,
+        "complemento": "Barbacoa"
+    }, {
+        "id": 3,
+        "complemento": "Chirizo"
+    }, {
+        "id": 4,
+        "complemento": "Pollo"
+    }]
+}, {
+    "id": 2,
+    "producto": "Hamburguesa",
+    "cantidad": 1,
+    "imagen": "public/img/default/hamburguesa.png",
+    "precio": 50.5,
+    "descripcion": "Descripcion de mi primer producto 2",
+    "compobl": false,
+    "compopc": true,
+    "compopcionales": [{
+        "id": 1,
+        "precio": 25,
+        "complemento": "Carne Extra"
+    }, {
+        "id": 2,
+        "precio": 20,
+        "complemento": "Extra queso"
+    }]
+}, {
+    "id": 3,
+    "producto": "Hot Dog",
+    "cantidad": 1,
+    "imagen": "public/img/default/hot-dog.jpg",
+    "precio": 40.5,
+    "descripcion": "Descripcion de mi primer producto 3",
+    "compobl": false,
+    "compopc": false,
+    "compopcionales": []
+}, {
+    "id": 4,
+    "producto": "Alitas",
+    "cantidad": 5,
+    "imagen": "public/img/default/alitas.jpg",
+    "precio": 35.5,
+    "descripcion": "Descripcion de mi primer producto 4",
+    "compobl": true,
+    "compopc": true,
+    "compobligatorios": [{
+        "id": 1,
+        "complemento": "Lemon"
+    }, {
+        "id": 2,
+        "complemento": "Bufalo"
+    }, {
+        "id": 3,
+        "complemento": "Mango"
+    }],
+    "compopcionales": [{
+        "id": 1,
+        "precio": 25,
+        "complemento": "Vasito de Aderezo"
+    }, {
+        "id": 2,
+        "precio": 20,
+        "complemento": "Apio y Zanahoria"
+    }]
+}, {
+    "id": 5,
+    "producto": "Refresco Cola-Cola 600ml",
+    "cantidad": 1,
+    "imagen": "public/img/default/refresco-coca-cola-600ml.png",
+    "precio": 52.5,
+    "descripcion": "Descripcion de mi primer producto 5",
+    "compobl": false,
+    "compopc": false,
+    "compopcionales": []
+}, {
+    "id": 6,
+    "producto": "Mi producto 6",
+    "cantidad": 1,
+    "imagen": "public/img/default/img_md_globe.jpg",
+    "precio": 63,
+    "descripcion": "Descripcion de mi primer producto 6",
+    "compobl": true,
+    "compopc": true,
+    "compopcionales": []
+}, {
+    "id": 7,
+    "producto": "Mi producto 7",
+    "cantidad": 1,
+    "imagen": "public/img/default/img_md_globe.jpg",
+    "precio": 25,
+    "descripcion": "Descripcion de mi primer producto 7",
+    "compobl": true,
+    "compopc": true,
+    "compopcionales": []
+}]

@@ -1,0 +1,44 @@
+<div style="margin-right:6px;" class="w3-container">
+	<h2>Button Colors</h2>
+	<button style="margin-right:6px;" class="w3-button w3-red" onclick="spinner1()">spinner1</button>
+	<button style="margin-right:6px;" class="w3-button w3-pink" onclick="spinner2()">spinner2</button>
+	<button style="margin-right:6px;" class="w3-button w3-purple" onclick="spinner3()">spinner3</button>
+	<button style="margin-right:6px;" class="w3-button w3-deep-purple" onclick="spinner4()">spinner4 </button>
+	<button style="margin-right:6px;" class="w3-button w3-indigo" onclick="spinner5()">spinner5</button>
+	<button style="margin-right:6px;" class="w3-button w3-blue" onclick="spinner6()">spinner6</button>
+</div>
+<script type="text/javascript">
+
+	function spinner1() {
+		window.plugins.spinnerDialog.show();
+		setTimeout(()=>{
+			window.plugins.spinnerDialog.hide();
+		},2000);
+	}
+
+	function spinner2() {
+		// Note: spinner dialog is cancelable by default
+		window.plugins.spinnerDialog.show(null, "message");
+	}
+
+	function spinner3() {
+// Set spinner dialog fixed
+window.plugins.spinnerDialog.show(null, null, true);
+	}
+	function spinner4() {
+// Set spinner dialog fixed with callback
+// Note: callback fires on tap events and Android hardware back button click event
+window.plugins.spinnerDialog.show(null, null, function () {console.log("callback");});
+	}
+	function spinner5() {
+// Show spinner dialog with title and message (Android only)
+window.plugins.spinnerDialog.show("title","message");
+	}
+	function spinner6() {
+// Set spinner dialog fixed (cannot be canceled with screen touch or Android hardware button)
+window.plugins.spinnerDialog.show("title","message", true);
+	}
+	// Show spinner dialog
+// Hide spinner dialog
+
+</script>

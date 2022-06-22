@@ -1,0 +1,20 @@
+<div id="LoginSuccess" class="d-none">
+            <!-- INICIO HOME -->
+            <div ng-include="'public/pages/app/home.html'"></div>
+            <!-- FIN HOME -->
+        </div>
+        <div id="LoginError" class="img-bg-session d-none">
+            <!-- INICIO LOGIN -->
+            <div ng-include="'public/pages/auth/login.html'"></div>
+            <!-- FIN LOGIN -->
+            <!-- INICIO REGISTRAR -->
+            <div ng-include="'public/pages/auth/registrar.html'"></div>
+            <!-- FIN REGISTRAR -->
+        </div>
+        <!-- FOOTER FIN -->
+        <!-- INICIO MODAL LOADING -->
+        <div id="mdlLoading" class="w3-modal">
+            <div class="w3-modal-content">
+            </div>
+        </div>
+        <!-- FIN MODAL LOADING -->

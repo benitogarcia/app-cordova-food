@@ -1,0 +1,33 @@
+{
+  "name": "com.sisoft.appjose",
+  "displayName": "AppJose",
+  "version": "1.0.0",
+  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "main": "public/js/session.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "Si-Soft Solutions",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "cordova-android": "^8.0.0",
+    "cordova-browser": "^6.0.0",
+    "cordova-plugin-dialogs": "^2.0.2",
+    "cordova-plugin-whitelist": "^1.3.5"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-dialogs": {}
+    },
+    "platforms": [
+      "browser"
+    ]
+  },
+  "dependencies": {
+    "cordova-plugin-spinner-dialog": "^1.3.1"
+  }
+}

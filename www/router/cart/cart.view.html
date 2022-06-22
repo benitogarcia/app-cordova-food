@@ -1,0 +1,48 @@
+<div class="content-app w3-container">
+  <br>
+  <div class="w3-row w3-card w3-margin-bottom p-2" style="z-index: -1;" ng-repeat="item in items">
+    <div class="w3-col s4 m4">
+      <img src="{{item.imagen}}" class="w3-bar-item w3-circle p-0" style="width: 100%;">
+    </div>
+    <div class="w3-col s8 m8 cart-item">
+      <span ng-click="confirmarEliminarItem(item)"
+          class="w3-xlarge cart-btn-delete w3-text-red" style="padding: 0 5px;">
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        </span>
+      <span class="w3-large">{{item.producto}}</span><br>
+      <span>{{item.precio | currency}}</span><br>
+      <span ng-show="item.compobl" class="w3-text-theme border-food w3-round-large">
+        <b>Guisado:</b> {{item.compobligatorio.complemento}}<br>
+      </span>
+      <span ng-show="item.compopc">
+        
+        <b>Extras:</b>
+        <span ng-repeat="cop in item.compopcionales" class="w3-text-theme border-food w3-round-large">
+          {{cop.complemento}}
+        </span>
+      </div>
+    </div>
+    <!--ul class="w3-ul w3-container">
+      <li class="w3-bar w3-round-large w3-border w3-card w3-margin-bottom p-5 cart" ng-repeat="item in items">
+        <span ng-click="confirmarEliminarItem(item)"
+          class="w3-btn w3-white w3-xlarge btn-delete">
+          <b>x</b>
+        </span>
+        <img src="{{item.imagen}}" class="w3-bar-item w3-circle p-0" style="width:20%;">
+        <div class="w3-bar-item p-0">
+          <span class="w3-large">{{item.producto}}</span><br>
+          <span>{{item.precio | currency}}</span><br>
+          <span ng-show="item.compobl" class="w3-text-theme border-food w3-round-large">
+            <b>Guisado:</b> {{item.compobligatorio.complemento}}<br>
+          </span>
+          <span ng-show="item.compopc">
+            
+            <b>Extras:</b>
+            <span ng-repeat="cop in item.compopcionales" class="w3-text-theme border-food w3-round-large">
+              {{cop.complemento}}
+            </span>
+          </span>
+        </div>
+      </li>
+    </ul-->
+  </div>

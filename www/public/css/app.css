@@ -1,0 +1,128 @@
+.avoid-clicks {
+  pointer-events: none;
+}
+.img-bg-session {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.img-bg-session {
+  background-image: url('../img/default/img-bg-session.jpg');
+  min-height: 100%;
+}
+
+.d-none {
+  display: none;
+}
+
+.d-block {
+  display: block;
+}
+
+.h1, .h2, .h3, .h4{
+    font-family: "Segoe UI",Arial,sans-serif;
+    font-weight: 400;
+    margin: 10px 0;
+}
+.h3 {
+    font-size: 24px;
+}
+.content-app {
+  margin-top: 72px !important;
+  margin-bottom: 45px;
+}
+.app-p {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+/* inicio padding */
+.p-5 {
+  padding: 5px;
+}
+.p-2 {
+  padding: 2px;
+}
+.pl-5 {
+  padding-left: 5px;
+}
+.p-0 {
+  padding: 0px !important;
+}
+.mr-5 {
+  margin-right: 5px;
+}
+/* fin padding */
+.prod-titulo {
+  font-weight: bold;
+  font-size: 17px;
+  text-transform: uppercase;
+  color: #d4a300;
+  text-shadow: 0px 10px 15px #ffe89d;
+}
+.prod-precio {
+  font-size: 15px;
+  color: #d4a300;
+
+}
+.prod-descripcion {
+  font-size: 13px;
+  color: #C8C8C8;
+}
+p.prod-titulo,.prod-precio,.prod-descripcion {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+.prod-img {
+   width: 100%;
+   border-top-right-radius: 5px;
+   border-top-left-radius: 5px;
+}
+.card {
+  border-radius: 5px;
+}
+.prod-btn-card {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.cart {
+  position: fixed;
+  top: 40px;
+  right: 5px;
+  border: 2px solid #F3F3F3;
+}
+
+.mdl-header {
+  padding-left: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.border-food {
+  border: 1px solid #ffc409;
+}
+
+.input-search {
+  width: 90%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('../img/default/searchicon.png');
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  margin: 5px;
+}
+
+.cart-item {
+  position: relative;
+} 
+
+.cart-btn-delete {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
