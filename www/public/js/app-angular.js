@@ -2,8 +2,16 @@ var app = angular.module("appMainJS", ["ngRoute"]);
 app.config(function($routeProvider) {
     $routeProvider
         .when("/", {
+            templateUrl: "router/categoria/categoria.view.html",
+            controller: "categoriaCtrl"
+        })
+        .when("/categoria/:categoria", {
             templateUrl: "router/productos/productos.view.html",
             controller: "productosCtrl"
+        })
+        .when("/sucursal", {
+            templateUrl: "router/sucursal/sucursal.view.html",
+            controller: "sucursalCtrl"
         })
         .when("/auth/login", {
             templateUrl: "router/auth/login/login.view.html",

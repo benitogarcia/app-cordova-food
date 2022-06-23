@@ -1,10 +1,10 @@
-app.controller("productosCtrl", function($scope, $location, $http) {
-    
+app.controller("productosCtrl", function($scope, $location, $http, $routeParams) {
+
     $scope.sesionActiva = false;
     if (!window.isLogged()) {
         $location.path('/auth/login');
     }
-
+    $scope.idcategoria = $routeParams.categoria;
     $scope.sesionActiva = true;
     $scope.productos = [];
     $scope.producto = {};
@@ -15,19 +15,24 @@ app.controller("productosCtrl", function($scope, $location, $http) {
         compobligatorios: {},
         compopcionales: []
     };
-
     $scope.ordenesCount = 0;
     $scope.nota = "";
     $scope.subtotal = 0;
+    $scope.isSubmit = false;
 
-    $http.get("public/json/productos.json")
+    $http.get(apis.producto.findBycategoria + $scope.idcategoria)
         .then(function(response) {
             $scope.productos = response.data;
         });
     $scope.addProductoCart = function(prod) {
         $scope.ordenesCount = 1;
         $scope.subtotal = prod.precio;
-        if (!prod.compobl && !prod.compopc) {
+        $scope.complementoobligatorio.id = 0;
+        $scope.complementos.compobligatorios = {};
+        $scope.complementos.compopcionales = [];
+        $scope.producto = prod;
+        window.openModal('mdlAddProducto');
+        /*if (!prod.compobl && !prod.compopc) {
             var fecha = new Date();
             window.cartAddProducto({
                 id: prod.id,
@@ -50,16 +55,16 @@ app.controller("productosCtrl", function($scope, $location, $http) {
             $scope.complementos.compopcionales = [];
             $scope.producto = prod;
             window.openModal('mdlAddProducto');
-        }
+        }*/
     };
     $scope.addProductoCartComplementos = function() {
-        
+
         if ($scope.producto.compobl &&
             ($scope.complementoobligatorio.id == 0 || $scope.complementoobligatorio.id == null)) {
             $scope.msgError = "Complemento obligatorio.";
             return;
         }
-
+        $scope.isSubmit = true;
         if ($scope.producto.compobl) {
             $scope.complementos.compobligatorios = $scope.producto.compobligatorios.find(c => c.id == $scope.complementoobligatorio.id);
         }
@@ -71,7 +76,7 @@ app.controller("productosCtrl", function($scope, $location, $http) {
             ordenes: $scope.ordenesCount,
             nota: $scope.nota,
             imagen: $scope.producto.imagen,
-            precio: $scope.producto.precio,
+            precio: $scope.subtotal,
             descripcion: $scope.producto.descripcion,
             compobl: $scope.producto.compobl,
             compopc: $scope.producto.compopc,
@@ -80,6 +85,7 @@ app.controller("productosCtrl", function($scope, $location, $http) {
             item: fecha.getTime()
         });
         window.closeModal('mdlAddProducto');
+        $scope.isSubmit = false;
 
     };
     $scope.eventClickCmplOpc = function(complopc) {

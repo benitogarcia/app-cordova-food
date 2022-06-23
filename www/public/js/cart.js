@@ -27,13 +27,19 @@ function cartCount() {
 cartCount();
 
 function cartRemoveProducto(producto) {
-    console.log(producto);
+    
     var productos = cartGetProductos();
-    console.log(productos);
+    
     productos = productos.filter(p => p.item.toString() != producto.item.toString());
-    console.log(productos);
+    
     window.localStorage.setItem('cart_productos', JSON.stringify(productos));
-    console.log(productos);
+    
+    cartCount();
+}
+
+function cartCancelar() {    
+    var productos = [];    
+    window.localStorage.setItem('cart_productos', JSON.stringify(productos));
     cartCount();
 }
 /**

@@ -1,0 +1,64 @@
+{
+    "categorias": [{
+        "id": 1,
+        "categoria": "Tacos",
+        "imagen": "public/img/default/sucrusal-1.jpg",
+        "status": true
+    }, {
+        "id": 2,
+        "categoria": "Hamburguesas",
+        "imagen": "public/img/default/sucursal-2.jpg",
+        "status": false
+    }, {
+        "id": 3,
+        "categoria": "Hot Dog",
+        "imagen": "public/img/default/sucrusal-1.jpg",
+        "status": true
+    }, {
+        "id": 4,
+        "categoria": "Bebidas",
+        "imagen": "public/img/default/sucursal-2.jpg",
+        "status": true
+    }],
+    "productos": [{
+        "id": 1,
+        "producto": "Tacos Asada",
+        "cantidad": 2,
+        "imagen": "public/img/default/tacos.png",
+        "precio": 60.5,
+        "descripcion": "Descripcion de mi primer producto 1",
+        "idcategoria": 1,
+        "compobl": false,
+        "compopc": false
+    }, {
+        "id": 2,
+        "producto": "Tacos Barbacoa",
+        "cantidad": 2,
+        "imagen": "public/img/default/tacos.png",
+        "precio": 60.5,
+        "descripcion": "Descripcion de mi",
+        "idcategoria": 1,
+        "compobl": false,
+        "compopc": false
+    }, {
+        "id": 3,
+        "producto": "Tacos Chirizo",
+        "cantidad": 2,
+        "imagen": "public/img/default/tacos.png",
+        "precio": 60.5,
+        "descripcion": "Descripcion de mi primer producto 1",
+        "idcategoria": 1,
+        "compobl": false,
+        "compopc": false
+    }, {
+        "id": 4,
+        "producto": "Tacos Pollo",
+        "cantidad": 2,
+        "imagen": "public/img/default/tacos.png",
+        "precio": 60.5,
+        "descripcion": "Descripcion",
+        "idcategoria": 1,
+        "compobl": false,
+        "compopc": false
+    }]
+}

@@ -30,7 +30,7 @@
     font-size: 24px;
 }
 .content-app {
-  margin-top: 72px !important;
+  margin-top: 67px !important;
   margin-bottom: 45px;
 }
 .app-p {
@@ -52,6 +52,9 @@
 }
 .mr-5 {
   margin-right: 5px;
+}
+.mt-5 {
+  margin-top: 5px;
 }
 /* fin padding */
 .prod-titulo {
