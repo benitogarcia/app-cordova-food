@@ -1,28 +1,78 @@
 <div class="content-app w3-container">
-  <div class="w3-panel w3-theme w3-padding-small w3-center">
-    <button class="w3-bar-item w3-btn w3-red" style="width:48%" ng-click="cancelarPedido()">Cancelar</button>
-    <button class="w3-bar-item w3-btn w3-teal" style="width:48%">Enviar</button>
+  <div class="w3-panel w3-theme w3-padding-small w3-center  w3-round">
+    <button class="w3-bar-item w3-btn w3-red w3-round" style="width:48%" ng-click="cancelarPedido()">Cancelar</button>
+    <button class="w3-bar-item w3-btn w3-teal w3-round" style="width:48%"
+    ng-click="openModalEnvio()">Enviar</button>
   </div>
-  <div class="w3-row w3-card w3-margin-bottom p-2" style="z-index: -1;" ng-repeat="item in items">
-    <div class="w3-col s4 m4">
-      <img src="{{item.imagen}}" class="w3-bar-item w3-circle p-0" style="width: 100%;">
-    </div>
-    <div class="w3-col s8 m8 cart-item">
-      <span ng-click="confirmarEliminarItem(item)"
-        class="w3-xlarge cart-btn-delete w3-text-red" style="padding: 0 5px;">
+  <ul class="w3-ul">
+    <li class="w3-bar w3-card w3-margin-bottom" ng-repeat="item in items">
+      <span class="w3-bar-item w3-button w3-white w3-text-red w3-xlarge w3-right w3-round"
+        ng-click="confirmarEliminarItem(item)">
         <i class="fa fa-trash" aria-hidden="true"></i>
       </span>
-      <span class="w3-large">{{item.producto}}</span><br>
-      <span>{{item.precio | currency}}</span><br>
-      <span ng-show="item.compobl" class="w3-text-theme border-food w3-round-large">
-        <b>Guisado:</b> {{item.compobligatorio.complemento}}<br>
-      </span>
-      <span ng-show="item.compopc">
-        
-        <b>Extras:</b>
-        <span ng-repeat="cop in item.compopcionales" class="w3-text-theme border-food w3-round-large">
-          {{cop.complemento}}
+      <img src="{{domains.github + item.imagen}}" class="w3-bar-item w3-round p-0" style="width:20%;">
+      <div class="w3-bar-item">
+        <span class="w3-large">{{item.producto}}</span>
+        <br>
+        <span>{{item.precio | currency}} </span>
+        <br>
+        <span ng-show="item.compobl" class="w3-text-theme border-food w3-round-large">
+          <b>Guisado:</b> {{item.compobligatorio.complemento}}<br>
         </span>
+        <span ng-show="item.compopc">
+          <b>Extras:</b>
+          <span ng-repeat="cop in item.compopcionales" class="w3-text-theme border-food w3-round-large">
+            {{cop.complemento}}
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<div id="mdlEnvio" class="w3-modal p-0">
+  <div class="w3-modal-content"  style="width: inherit; height: inherit; margin: 0;">
+    <div class="w3-card w3-theme w3-padding-small">
+      <span class="w3-bar-item w3-xlarge w3-right w3-padding-small">
+        <h4>&times;</h4>
+      </span>
+      <h3>Datos de Envio</h3>
+    </div>
+    <div class="w3-container" ng-show="envio.paginas[0].visible">
+      <h4 class="w3-center">Forma de pago</h4>
+      <div class="w3-block w3-text-theme" ng-repeat="fpa in envio.fpagos">
+        <label>
+          <input class="w3-radio" type="radio" name="fpago" value="{{fpa.id}}"> {{fpa.forma}}
+        </label>
+      </div>
+      <div class="w3-block">
+        <button class="w3-btn w3-right w3-text-theme" ng-click="nextPage(envio.paginas[1].clave)">
+        Continuar&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i>
+        </button>
       </div>
     </div>
+    <div class="w3-container" ng-show="envio.paginas[1].visible">
+      <h2>Paris</h2>
+      <p>Paris is the capital of France.</p>
+      <div class="w3-block">
+        <button class="w3-btn w3-text-theme" ng-click="nextPage(envio.paginas[0].clave)">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Regresar
+        </button>
+        <button class="w3-btn w3-right w3-text-theme" ng-click="nextPage(envio.paginas[2].clave)">
+        Continuar&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+    <div class="w3-container" ng-show="envio.paginas[2].visible">
+      <h2>Tokyo</h2>
+      <p>Tokyo is the capital of Japan.</p>
+      <div class="w3-block">
+        <button class="w3-btn w3-text-theme" ng-click="nextPage(envio.paginas[1].clave)">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Regresar
+        </button>
+        <button class="w3-btn w3-right w3-text-theme">
+        Enviar&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

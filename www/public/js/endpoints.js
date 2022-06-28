@@ -2,14 +2,22 @@ const entorno = "qa"; // prod
 
 const endpoints = {
 	"qa": {
-        domain: "http://192.168.0.103:3000"
+        domain: "https://my-json-server.typicode.com/benitogarcia/apifood",
+        github: "https://raw.githubusercontent.com/benitogarcia/apifood/main/"
     },
     "prod": {
-        domain: "http://192.168.0.103:3000"
+        domain: "",
+        github: ""
     }
 };
 
 const apis = {
+	"sucursal" : {
+		"getAll": endpoints[entorno].domain + "/sucursales"
+	},
+	"promociones" : {
+		"getSucursal": endpoints[entorno].domain + "/promociones?idsucursal="
+	},
 	"categoria" : {
 		"getAll": endpoints[entorno].domain + "/categorias"
 	},

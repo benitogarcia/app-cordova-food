@@ -129,3 +129,12 @@ p.prod-titulo,.prod-precio,.prod-descripcion {
   top: 5px;
   right: 5px;
 }
+
+.w-100 {
+  width: 100%;
+}
+
+.text-border {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #fff;
+}

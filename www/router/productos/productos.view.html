@@ -6,7 +6,7 @@
 		<div class="w3-col s6 m6 p-5">
 			<div class="w3-card card w3-margin-bottom"
 				ng-repeat="prod in productos | filter:search" ng-if="(($index+2)%2)==0">
-				<img src="{{prod.imagen}}" alt="{{prod.producto}}" class="prod-img">
+				<img src="{{domains.github + prod.imagen}}" alt="{{prod.producto}}" class="prod-img">
 				<div class="w3-container w3-center">
 					<p class="prod-titulo w3-center">{{prod.producto}}</p>
 					<p class="prod-precio">{{prod.cantidad}} x {{prod.precio | currency}}</p>
@@ -20,7 +20,7 @@
 		<div class="w3-col s6 m6 p-5">
 			<div class="w3-card card w3-margin-bottom"
 				ng-repeat="prod in productos | filter:search" ng-if="(($index+2)%2)==1">
-				<img src="{{prod.imagen}}" alt="{{prod.producto}}" class="prod-img">
+				<img src="{{domains.github + prod.imagen}}" alt="{{prod.producto}}" class="prod-img">
 				<div class="w3-container w3-center">
 					<p class="prod-titulo w3-center">{{prod.producto}}</p>
 					<p class="prod-precio">{{prod.cantidad}} x {{prod.precio | currency}}</p>
@@ -34,16 +34,16 @@
 	</div>
 </div>
 <div id="mdlAddProducto" class="w3-modal">
-	<div class="w3-modal-content w3-animate-bottom">
-		<header class="w3-container w3-theme-food">
-			<span onclick="closeModal('mdlAddProducto')" class="w3-btn w3-display-topright w3-theme-food">&times;</span>
+	<div class="w3-modal-content w3-animate-bottom w3-round">
+		<header class="w3-container w3-theme-food w3-round">
+			<span onclick="closeModal('mdlAddProducto')" class="w3-btn w3-display-topright w3-theme-food w3-round"><b>&times;</b></span>
 			<div class="mdl-header">
 				<h5>Complete datos del pedido</h5>
 			</div>
 		</header>
 		<div class="w3-container">
 			<h4 class="w3-center w3-text-theme">
-			<span class="w3-text-red">{{producto.cantidad * ordenesCount}}</span> {{producto.producto}} <br>
+			<strong class="w3-text-red">{{producto.cantidad * ordenesCount}}</strong> {{producto.producto}} <br>
 			<div class="w3-bar  w3-round-xxlarge">
 				<button class="w3-bar-item w3-btn w3-theme-d2 w3-padding-small p-5" ng-click="decrementar()">
 				<i class="fa fa-minus-circle" aria-hidden="true"></i>
@@ -90,6 +90,8 @@
 				<i class="fa fa-cart-plus" aria-hidden="true"></i> Añadir
 				</button>
 			</p>
+			<br>
+			<br>
 		</div>
 	</div>
 </div>

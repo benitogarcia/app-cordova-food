@@ -1,1 +1,3 @@
+https://api.jsonbin.io/b/62b5d381449a1f3821186dd2
+
 falta actulizar lista de carrito al eliminar producto

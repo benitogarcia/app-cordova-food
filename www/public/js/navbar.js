@@ -33,4 +33,9 @@ window.showModal = function(id) {
 window.closeModal = function(id) {
     document.getElementById(id).style.display = 'none';
 };
+window.showModalInfo = function(titulo, mensaje) {
+document.getElementById("txtMdlInfoTitulo").innerHTML = titulo;
+document.getElementById("txtMdlInfoMensaje").innerHTML = mensaje;
+document.getElementById('mdlInfo').style.display = 'block';
+}
 /** fin funciones modales **/

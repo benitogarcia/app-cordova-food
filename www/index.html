@@ -13,7 +13,6 @@
         <link rel="stylesheet" type="text/css" href="public/libs/w3css/w3-theme-food.css">
         <link rel="stylesheet" type="text/css" href="public/libs/font-awesome-4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="public/css/app.css">
-
         <title></title>
     </head>
     <body ng-app="appMainJS">
@@ -29,9 +28,13 @@
                     <img class="w3-circle" src="public/img/default/img_md_globe.jpg" alt="avatar" style="width:75%">
                 </div>
             </div>
-            <a class="w3-bar-item w3-button sb-menu w3-theme avoid-clicks"
+            <a id="mnHome" class="w3-bar-item w3-button sb-menu w3-theme avoid-clicks"
                 onclick="menuItemSelect(this)" href="#!/">
                 <h5>Inicio</h5>
+            </a>
+            <a class="w3-bar-item w3-button sb-menu"
+                onclick="menuItemSelect(this)" href="#!/test">
+                <h5>Test</h5>
             </a>
             <a class="w3-bar-item w3-button sb-menu"
                 onclick="menuItemSelect(this)" href="#!/template">
@@ -55,13 +58,18 @@
                 &#9776;
                 </button>
                 <h4 class="w3-bar-item">
-                    <strong>Comidas</strong>
+                <strong>Comidas</strong>
                 </h4>
             </header>
         </div>
         <!-- NAVBAR FIN -->
         <a href="#!/cart" id="myBtnCart" class="w3-btn sb-menu w3-xlarge w3-circle w3-theme-action w3-right cart d-none" onclick="menuItemSelect(this)">
+            
             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            
+            <small style="position: fixed; top: 48px; right: 10px;">
+            <strong id="myBtnCartCount" class="text-border w3-text-black"></strong>
+            </small>
         </a>
         <!-- BODY INICIO -->
         <div>
@@ -95,13 +103,27 @@
                 </div>
             </footer>
         </div>
-        <!-- FOOTER FIN -->        
+        <!-- FOOTER FIN -->
         <!-- INICIO MODAL LOADING -->
         <div id="mdlLoading" class="w3-modal">
-            <div class="w3-modal-content">
+            <div class="w3-modal-content w3-center" style="background: transparent; margin-top: 50%">
+                <img src="public/img/default/load.gif" alt="Loading..." width="50px" height="50px">
             </div>
         </div>
         <!-- FIN MODAL LOADING -->
+        <!-- INICIO MODAL INFO -->
+        <div id="mdlInfo" class="w3-modal">
+            <div class="w3-modal-content w3-card-4 w3-animate-zoom w3-round">
+                <div class="w3-container w3-center">
+                    <h4 style="margin-bottom: 2px:">
+                    <strong id="txtMdlInfoTitulo">titulo</strong>
+                    </h4>
+                    <h5 id="txtMdlInfoMensaje" style="margin-top: 1px;">INforcaion que detalla</h5>
+                </div>
+                <button class="w3-btn w3-block w3-amber w3-round w3-margin-top" onclick="document.getElementById('mdlInfo').style.display='none'">ACEPTAR</button>
+            </div>
+        </div>
+        <!-- INICIO MODAL INFO -->
         <script src="cordova.js"></script>
         <script src="public/js/session.js"></script>
         <script src="public/js/cart.js"></script>
@@ -111,8 +133,10 @@
         <script src="public/js/navbar.js"></script>
         <script src="public/js/app-angular.js"></script>
         <script src="router/auth/login/login.ctrl.js"></script>
+        <script src="router/sucursales/sucursal.ctrl.js"></script>
         <script src="router/productos/productos.ctrl.js"></script>
         <script src="router/categoria/categoria.ctrl.js"></script>
         <script src="router/cart/cart.ctrl.js"></script>
+        <script src="router/test/test.ctrl.js"></script>
     </body>
 </html>

@@ -1,0 +1,25 @@
+<div class="content-app w3-container">
+  <br>
+  <div class="w3-row">
+    <div class="w3-col s6 m6" style="padding-right: 5px;">
+      <div class="w3-card w3-margin-bottom w3-round w-100"
+      ng-repeat="sucur in sucursales" 
+      ng-if="(($index + 2) % 2)==0" ng-click="redirectToSucursal(sucur.id)">
+        <img src="{{domains.github + sucur.imagen}}" alt="{{sucur.sucursal}}" class="w-100">
+        <div class="w3-container w3-center">
+          <p>{{sucur.sucursal}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col s6 m6" style="padding-left: 5px;">
+      <div class="w3-card w3-margin-bottom w3-round w-100"
+      ng-repeat="sucur in sucursales" 
+      ng-if="(($index + 2) % 2)==1" ng-click="redirectToSucursal(sucur.id)">
+        <img src="{{domains.github + sucur.imagen}}" alt="{{sucur.sucursal}}" class="w-100">
+        <div class="w3-container w3-center">
+          <p>{{sucur.sucursal}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

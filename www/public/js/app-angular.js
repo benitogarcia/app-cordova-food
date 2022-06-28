@@ -2,16 +2,16 @@ var app = angular.module("appMainJS", ["ngRoute"]);
 app.config(function($routeProvider) {
     $routeProvider
         .when("/", {
+            templateUrl: "router/sucursales/sucursal.view.html",
+            controller: "sucursalCtrl"
+        })
+        .when("/sucursal/:idsucursal", {
             templateUrl: "router/categoria/categoria.view.html",
             controller: "categoriaCtrl"
         })
-        .when("/categoria/:categoria", {
+        .when("/sucursal/:idsucursal/categoria/:idcategoria", {
             templateUrl: "router/productos/productos.view.html",
             controller: "productosCtrl"
-        })
-        .when("/sucursal", {
-            templateUrl: "router/sucursal/sucursal.view.html",
-            controller: "sucursalCtrl"
         })
         .when("/auth/login", {
             templateUrl: "router/auth/login/login.view.html",
@@ -24,6 +24,10 @@ app.config(function($routeProvider) {
         .when("/cart", {
             templateUrl: "router/cart/cart.view.html",
             controller: "cartCtrl"
+        })
+        .when("/test", {
+            templateUrl: "router/test/test.view.html",
+            controller: "testCtrl"
         })
         .when("/template", {
             templateUrl: "templates/home.html"

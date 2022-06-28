@@ -17,6 +17,7 @@ function cartGetProductos() {
 }
 
 function cartCount() {
+    document.getElementById("myBtnCartCount").innerHTML = cartGetProductos().length + "";
     if (cartGetProductos().length > 0) {
         document.getElementById('myBtnCart').style.display = "block";
     } else {

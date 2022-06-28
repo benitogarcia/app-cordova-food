@@ -2,22 +2,30 @@
   <br>
   <div class="w3-row">
     <div class="w3-col s6 m6" style="padding-right: 5px;">
-      <div class="w3-card w3-margin-bottom w3-round" style="width:100%"
+
+      <div class="w3-card w3-margin-bottom w3-round w-100" 
+        ng-click="redirectToPromociones()" ng-if="promociones.length > 0">
+        <img src="{{domains.github + 'public/img/default/promociones.png'}}" alt="Promociones" class="w-100 w3-round" >
+        <div class="w3-container w3-center">
+          <h5>Promociones ({{promociones.length}})</h5>
+        </div>
+      </div>
+      <div class="w3-card w3-margin-bottom w3-round w-100" 
         ng-repeat="catg in categorias" ng-if="(($index + 2) % 2)==0"
         ng-click="redirectToProductos(catg.id)">
-        <img src="{{catg.imagen}}" alt="Alps" style="width:100%">
+        <img src="{{domains.github + catg.imagen}}" alt="{{catg.categoria}}" class="w-100 w3-round">
         <div class="w3-container w3-center">
-          <p>{{catg.categoria}}</p>
+          <h5>{{catg.categoria}}</h5>
         </div>
       </div>
     </div>
     <div class="w3-col s6 m6"  style="padding-left: 5px;">
-      <div class="w3-card w3-margin-bottom w3-round" style="width:100%"
+      <div class="w3-card w3-margin-bottom w3-round w-100" 
         ng-repeat="catg in categorias" ng-if="(($index + 2) % 2)==1"
         ng-click="redirectToProductos(catg.id)">
-        <img src="{{catg.imagen}}" alt="Alps" style="width:100%">
+        <img src="{{domains.github + catg.imagen}}" alt="{{catg.categoria}}" class="w-100 w3-round">
         <div class="w3-container w3-center">
-          <p>{{catg.categoria}}</p>
+          <h5>{{catg.categoria}}</h5>
         </div>
       </div>
     </div>

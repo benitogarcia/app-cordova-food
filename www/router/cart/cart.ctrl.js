@@ -7,70 +7,68 @@ app.controller("cartCtrl", function($scope, $location, $filter) {
     $scope.items = window.cartGetProductos();
     $scope.data.items = $scope.items;
     $scope.item = {};
-
+    $scope.domains = {
+        github: endpoints[entorno].github,
+        server: endpoints[entorno].domain
+    };
     $scope.confirmarEliminarItem = function(item) {
         $scope.item = item;
         navigator.notification.confirm(
-            'Decea remover ' + item.producto + '=' + item.precio + '?',
+            'Desea remover ' + item.producto + '=' + item.precio + '?',
             (btnIndex) => {
                 if (btnIndex == 1) {
-                    console.log('Aceptar');
                     cartRemoveProducto($scope.item);
-                    console.log($scope.items);
                     $scope.$apply(function() {
                         $scope.items = $filter('filter')($scope.items, function(item) {
                             return item.item !== $scope.item.item;
                         });
-                        console.log($scope.items);
+
                         $scope.data.items = $scope.items;
                         if ($scope.items.length == 0) {
-                            $location.path('#!/')
+                            window.menuItemSelect(document.getElementById("mnHome"));
+                            $location.path('/');
                         }
                     });
                 }
-            }, 'Confirme', ['Cancelar', 'Aceptar']
+            }, 'Confirme', ['Aceptar', 'Cancelar']
         );
-    };
-    /*
-
-            (btnIndex) => {
-                if (btnIndex == 1) {
-                    console.log('Aceptar');
-                    cartRemoveProducto($scope.item);
-                    console.log($scope.items);
-                    $scope.items = $filter('filter')($scope.items, function(item) {
-                        return item.item !== $scope.item.item;
-                    });
-                    console.log($scope.items);
-                    $scope.data.items = $scope.items;
-                    if ($scope.items.length == 0) {
-                        $location.path('#!/')
-                    }
-                }
-            }
-    */
-
-    $scope.confirmCallback = function(btnIndex) {
-        if (btnIndex == 1) {
-            console.log('Aceptar');
-            cartRemoveProducto($scope.item);
-            $scope.items = $filter('filter')($scope.items, function(item) {
-                return item.item !== $scope.item.item;
-            });
-
-            //$scope.items.filter(it => it.item != $scope.item.item);
-            //setTimeout(function() {
-            //$scope.items = cartGetProductos();
-            if ($scope.items.length == 0) {
-                $location.path('#!/')
-            }
-
-            //}, 1000);
-        }
     };
 
     $scope.cancelarPedido = function() {
-        window.cartCancelar();
-        $location.path('/');
+        navigator.notification.confirm(
+            'Remover todo el carrito?',
+            (btnIndex) => {
+                if (btnIndex == 1) {
+                    $scope.$apply(function() {
+                        window.cartCancelar();
+                        window.menuItemSelect(document.getElementById("mnHome"));
+                        $location.path('/');
+                    });
+                }
+            }, 'Confirme', ['Aceptar', 'Cancelar']
+        );
+    };
+
+    $scope.openModalEnvio = function() {
+        window.openModal('mdlEnvio');
+    };
+
+    $scope.envio = {
+        fpagos: [
+            {id: 1, forma: 'Efectivo'},
+            {id: 2, forma: 'Transferencia'},
+        ],
+        paginas: [
+            {clave: 'fpago', visible: true},
+            {clave: 'fenvio', visible: false},
+            {clave: 'final', visible: false}
+        ],
+    };
+    $scope.nextPage = function(clave) {
+
+        $scope.envio.paginas[0].visible = ($scope.envio.paginas[0].clave == clave);
+        $scope.envio.paginas[1].visible = ($scope.envio.paginas[1].clave == clave);
+        $scope.envio.paginas[2].visible = ($scope.envio.paginas[2].clave == clave);
+        
     };
 });
